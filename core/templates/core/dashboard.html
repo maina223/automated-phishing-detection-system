@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Phishing Detection Reports</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email Sender</th>
+                <th>Subject</th>
+                <th>Prediction</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in phishing_reports %}
+            <tr>
+                <td>{{ report.id }}</td>
+                <td>{{ report.sender }}</td>
+                <td>{{ report.subject }}</td>
+                <td>
+                    {% if report.is_phishing %}
+                        <span class="badge bg-danger">Phishing</span>
+                    {% else %}
+                        <span class="badge bg-success">Legit</span>
+                    {% endif %}
+                </td>
+                <td>{{ report.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
