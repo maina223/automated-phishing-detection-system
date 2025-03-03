@@ -1,2 +1,3 @@
 echo "dataset/phishing_emails.csv" >> .gitignore
 
+dataset/phishing_emails.csv
